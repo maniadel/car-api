@@ -27,7 +27,12 @@ The language to use will be Typescript and the framework Nestjs (https://nestjs.
 
 ## With Docker
 
-docker-compose up or  ./start
+Launch a script ./start.sh
+
+```bash
+$ ./start.sh
+```
+
 
 ## Without Docker
 
