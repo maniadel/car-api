@@ -56,19 +56,27 @@ export class CarService {
   }
 
   async updateCar(id: string, updateCarDto: UpdateCarDto): Promise<Car> {
-    const manufacturer = await this.carModel.findById(id);
-    if (!manufacturer) {
+    const carDoc = await this.carModel.findById(id);
+    if (!carDoc) {
       throw new HttpException(
         "You can not update a Car. Not Found",
         HttpStatus.NOT_FOUND
       );
     }
-    await manufacturer.updateOne(updateCarDto);
+    await carDoc.updateOne(updateCarDto);
     return this.carModel.findById(id);
   }
 
   async fetchManufacturer(id: string): Promise<Car> {
-    return this.carModel.findOne({ _id: id }, { manufacturer: 1 });
+    const manufacturer = await this.carModel.findOne({ _id: id }, { manufacturer: 1 } );
+
+    if (!manufacturer) {
+      throw new HttpException(
+        "Car Id does not exist",
+        HttpStatus.NOT_FOUND
+      );
+    }
+    return manufacturer;
   }
 
   async automaticCarUpdate() {
