@@ -1,0 +1,242 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ULTRA",
+		"_postman_id": "179cf71a-64a0-bacd-3169-73a13a5a748c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE CAR",
+			"request": {
+				"url": "http://localhost:3000/car/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstRegistrationDate\": \"2018-07-18\",\r\n    \"price\": 36000,\r\n    \"manufacturer\": {\r\n      \"name\": \"Manufacturer 1\",\r\n      \"phone\": \"0762656434\",\r\n      \"siret\": \"1222-0000-98776\"\r\n    },\r\n    \"owners\": [\r\n    \t{\r\n\t\t    \"name\": \"Mani Adel 1\",\r\n\t\t    \"purchaseDate\": \"2018-01-11\"\r\n\t\t },\r\n\t\t \t{\r\n\t\t    \"name\": \"Mani Adel 2\",\r\n\t\t    \"purchaseDate\": \"2010-01-11\"\r\n\t\t }\r\n    ]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE  Car",
+			"request": {
+				"url": "http://localhost:3000/car/update/5ddbb164792d4b424857eede",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstRegistrationDate\": \"2019-01-11\",\r\n    \"price\": 36000,\r\n    \"manufacturer\": {\r\n      \"name\": \"Manufacturer 1\",\r\n      \"phone\": \"0762656434\",\r\n      \"siret\": \"1222-0000-98776\"\r\n    },\r\n    \"owners\": [\r\n    \t{\r\n\t\t    \"name\": \"Mani 1\",\r\n\t\t    \"purchaseDate\": \"2019-01-11\"\r\n\t\t },\r\n\t\t \t{\r\n\t\t    \"name\": \"Mani 2\",\r\n\t\t    \"purchaseDate\": \"2019-01-11\"\r\n\t\t }\r\n    ]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FindById Car",
+			"request": {
+				"url": "http://localhost:3000/car/findbyid/5ddbb164792d4b424857eede",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "mani",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "purchaseDate",
+							"value": "2019-01-12",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "FindById fetch-manufacturer by car",
+			"request": {
+				"url": "http://localhost:3000/car/fetch-manufacturer/5ddbb164792d4b424857eede",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "mani",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "purchaseDate",
+							"value": "2019-01-12",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Automatic Car update",
+			"request": {
+				"url": "http://localhost:3000/car/automatic-car-update",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "mani",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "purchaseDate",
+							"value": "2019-01-12",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "List Car",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/car/list?offset=0&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"car",
+						"list"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "offset",
+						"value": "1",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "mani",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "purchaseDate",
+							"value": "2019-01-12",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE CAR",
+			"request": {
+				"url": "http://localhost:3000/car/delete",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"5dda874c31e7cb3a951d9eb3\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
